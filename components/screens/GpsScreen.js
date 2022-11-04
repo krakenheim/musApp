@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Dimensions, Permission } from "react-native";
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
 import * as Location from "expo-location";
 import React, {useState, useEffect} from "react";
 
@@ -15,9 +15,13 @@ export default function GpsScreen() {
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-      console.log(location);
+      let GeoLocation = await Location.getCurrentPositionAsync({});
+      setLocation(GeoLocation);
+      /* console.log(location.coords.latitude, " ", location.coords.longitude); */
+      
+      
+
+      /* console.log(location.latitude, "+", location.longitude) */
     })();
   }, []);
 
@@ -26,12 +30,21 @@ export default function GpsScreen() {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: 56.15818103431764,
-          longitude: 10.18489837599552,
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      />
+        showsUserLocation={true}
+      >
+        <Marker 
+          title="Locations"
+          description="Dette er testen med locations"
+          coordinate={{
+            latitude: 56.15818103431764, 
+            longitude: 10.18489837599552}}
+        />
+      </MapView>
     </View>
   );
 }
