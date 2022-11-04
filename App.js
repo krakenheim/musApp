@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import MapView from "react-native-maps";
+
 import SelectionScreen from "./components/screens/SelectionScreen";
 import GpsScreen from "./components/screens/GpsScreen";
-import ActButton from "./components/actButton";
+
 
 
 
