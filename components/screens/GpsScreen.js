@@ -16,12 +16,13 @@ export default function GpsScreen() {
       }
 
       let GeoLocation = await Location.getCurrentPositionAsync({});
-      setLocation(GeoLocation);
+      setLocation({
+         latitude: GeoLocation.coords.latitude,
+         longitude: GeoLocation.coords.longitude,
+        });
       /* console.log(location.coords.latitude, " ", location.coords.longitude); */
-      
-      
-
-      /* console.log(location.latitude, "+", location.longitude) */
+      /* console.log(GeoLocation.coords.latitude, "+", GeoLocation.coords.longitude) */
+      console.log(location)
     })();
   }, []);
 
@@ -30,8 +31,10 @@ export default function GpsScreen() {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
+          latitude: 56.15818103431764,
+          longitude: 10.18489837599552,
+          /* latitude: location.coords.latitude,
+          longitude: location.coords.longitude, */
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
