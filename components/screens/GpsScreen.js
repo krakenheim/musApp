@@ -33,20 +33,22 @@ export default function GpsScreen() {
         initialRegion={{
           latitude: 56.15818103431764,
           longitude: 10.18489837599552,
-          /* latitude: location.coords.latitude,
-          longitude: location.coords.longitude, */
+         /*  latitude: location.latitude,
+          longitude: location.longitude, */
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
         showsUserLocation={true}
       >
-        <Marker 
+        {/* <Marker 
           title="Locations"
           description="Dette er testen med locations"
           coordinate={{
-            latitude: 56.15818103431764, 
-            longitude: 10.18489837599552}}
-        />
+            latitude: 56.15818103431764,
+            longitude: 10.18489837599552,
+            latitude: location.latitude,
+            longitude: location.longitude}}
+        /> */}
       </MapView>
     </View>
   );
