@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
-const ActButton = ({ tech }) => {
+const ActButton = ({ tech, onPress }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.text}>Aktiver {tech}</Text>
     </TouchableOpacity>
   );
