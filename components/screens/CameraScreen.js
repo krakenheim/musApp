@@ -14,6 +14,8 @@ export default function CameraScreen() {
     async () => {
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
     };
+
+    // Er i gang med at lave kamera. Permission delen er ikke færdiggjort. Se fra 9:15 fra youtubevideoen; https://www.youtube.com/watch?v=9EoKurp6V0I
   }, []);
 
   function toggleCameraType() {
