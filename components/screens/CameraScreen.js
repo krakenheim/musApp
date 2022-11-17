@@ -1,6 +1,9 @@
 import { View, Text, StyleSheet, Dimensions, Permission } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { Camera, CameraType } from "expo-camera";
+// * expo install expo-camera
+import * as MediaLibrary from "expo-media-library";
+// * expo install expo-media-library
 
 export default function CameraScreen() {
   const [type, setType] = useState(CameraType.back);
@@ -11,7 +14,8 @@ export default function CameraScreen() {
 
   /* const [permission, requestPermission] = Camera.useCameraPermissions(); */
   useEffect(() => {
-   ( async () => {
+    (async () => {
+      MediaLibrary.requestPermissionsAsync();
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setHasPermission(cameraStatus.status === "granted");
     })();
@@ -27,14 +31,15 @@ export default function CameraScreen() {
 
   return (
     <View style={styles.container}>
-      <Camera 
+      <Camera
         style={styles.camera}
         type={type}
         flashMode={flash}
         ref={cameraRef}
-        >
- 
-        </Camera>
+      ></Camera>
+      <View>
+        
+      </View>
     </View>
   );
 }
@@ -43,7 +48,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    //alignItems: "center",
     justifyContent: "center",
+  },
+  camera: {
+    flex: 1,
+    borderRadius: 20,
   },
 });
