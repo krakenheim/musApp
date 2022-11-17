@@ -11,9 +11,10 @@ export default function CameraScreen() {
 
   /* const [permission, requestPermission] = Camera.useCameraPermissions(); */
   useEffect(() => {
-    async () => {
+   ( async () => {
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
-    };
+      setHasPermission(cameraStatus.status === "granted");
+    })();
 
     // Er i gang med at lave kamera. Permission delen er ikke færdiggjort. Se fra 9:15 fra youtubevideoen; https://www.youtube.com/watch?v=9EoKurp6V0I
   }, []);
@@ -26,7 +27,14 @@ export default function CameraScreen() {
 
   return (
     <View style={styles.container}>
-      <Camera type={type}></Camera>
+      <Camera 
+        style={styles.camera}
+        type={type}
+        flashMode={flash}
+        ref={cameraRef}
+        >
+ 
+        </Camera>
     </View>
   );
 }
