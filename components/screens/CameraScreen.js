@@ -19,8 +19,6 @@ export default function CameraScreen() {
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setHasPermission(cameraStatus.status === "granted");
     })();
-
-    // Er i gang med at lave kamera. Permission delen er ikke færdiggjort. Se fra 9:15 fra youtubevideoen; https://www.youtube.com/watch?v=9EoKurp6V0I
   }, []);
 
   function toggleCameraType() {
@@ -29,6 +27,10 @@ export default function CameraScreen() {
     );
   }
 
+  /* 
+  ! Er i gang med at lave kamera udseene. Se
+  ! fra 13:30 fra youtubevideoen; https://www.youtube.com/watch?v=9EoKurp6V0I
+  */
   return (
     <View style={styles.container}>
       <Camera
@@ -37,9 +39,7 @@ export default function CameraScreen() {
         flashMode={flash}
         ref={cameraRef}
       ></Camera>
-      <View>
-        
-      </View>
+      <View></View>
     </View>
   );
 }
