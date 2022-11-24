@@ -4,7 +4,7 @@ import Constants from "expo-constants";
 import { Camera, CameraType } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
 
-import CameraBot from "../cameraBot";
+import CameraBot from "../CameraBot";
 
 export default function App() {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
