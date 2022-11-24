@@ -17,12 +17,44 @@ export default function App() {
         <Stack.Screen
           name="Start"
           component={SelectionScreen}
-          options={{ title: "Select" }}
+          options={{
+            title: "Select",
+            headerTransparent: true,
+            headerTitleAlign: "center",
+            headerTintColor: "#111",
+          }}
         />
 
-        <Stack.Screen name="NFC" component={NfcScreen} />
-        <Stack.Screen name="Camera" component={CameraScreen} />
-        <Stack.Screen name="GPS" component={GpsScreen} />
+        <Stack.Screen
+          name="NFC"
+          component={NfcScreen}
+          options={{
+            title: "NFC",
+            headerTransparent: true,
+            headerTitleAlign: "center",
+            headerTintColor: "#111",
+          }}
+        />
+        <Stack.Screen
+          name="Camera"
+          component={CameraScreen}
+          options={{
+            title: "Camera",
+            headerTransparent: true,
+            headerTitleAlign: "center",
+            headerTintColor: "#fff",
+            
+          }}
+        />
+        <Stack.Screen
+          name="GPS"
+          component={GpsScreen}
+          options={{
+            title: "",
+            headerTransparent: true,
+            headerTitleAlign: "center",
+          }}
+        />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
