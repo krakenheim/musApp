@@ -13,8 +13,6 @@ import * as tf from "@tensorflow/tfjs";
 import { cameraWithTensors } from "@tensorflow/tfjs-react-native";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 
-import CameraBot from "../CameraBot";
-
 const textureDims =
   Platform.OS === "ios"
     ? {
@@ -79,7 +77,7 @@ export default function ObjectRec() {
     return <Text>No access to camera</Text>;
   }
   if (!net) {
-    return <Text>Model not loaded</Text>;
+    return <Text style={styles.loading}>Loading Data</Text>;
   }
 
   return (
@@ -116,5 +114,13 @@ const styles = StyleSheet.create({
   camera: {
     flex: 10,
     width: "100%",
+  },
+  loading: {
+    flex: 1,
+    textAlign: "center",
+    textAlignVertical: "center",
+    justifyContent: "center",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
