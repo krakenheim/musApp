@@ -30,7 +30,7 @@ export default function App() {
           name="NFC"
           component={NfcScreen}
           options={{
-            title: "NFC",
+            title: "",
             headerTransparent: true,
             headerTitleAlign: "center",
             headerTintColor: "#111",
