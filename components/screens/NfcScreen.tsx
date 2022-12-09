@@ -1,32 +1,57 @@
-import { View, Text, StyleSheet, Dimensions, Permission, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Permission,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Entypo } from "@expo/vector-icons";
 
 import BottomSheet, { BottomSheetRefProps } from "../BottomSheet";
 
 export default function NfcScreen() {
-  const ref = useRef<BottomSheetRefProps>(null)
+  const ref = useRef<BottomSheetRefProps>(null);
 
   const onPress = useCallback(() => {
-    const isActive = ref?.current?.isActive()
+    const isActive = ref?.current?.isActive();
     if (isActive) {
       ref?.current?.scrollTo(0);
     } else {
       ref?.current?.scrollTo(-150);
     }
-
-    
-  }, [])
+  }, []);
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#111" }}>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={onPress}/>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
+          <Text
+            style={{
+              flex: 1,
+              textAlign: "center",
+              textAlignVertical: "center",
+              alignItems:'center',
+              fontSize: 20,
+              fontWeight: 'bold'
+            }}
+          >
+            Scan {"\n"} NFC
+          </Text>
+        </TouchableOpacity>
         {/*  <Text style={styles.loading}>Dette er KFC... Undskyld NFC.</Text> */}
-        <BottomSheet ref={ref} >
-          <View style={{flex: 1, backgroundColor: 'orange'}}>
-            <Text style={{flex: 1, textAlign: 'center', textAlignVertical: 'center'}}>
-                 Her kommer ting ind i bottomsheet!
+        <BottomSheet ref={ref}>
+          <View style={{ flex: 1, backgroundColor: "orange" }}>
+            <Text
+              style={{
+                flex: 1,
+                textAlign: "center",
+                textAlignVertical: "center",
+              }}
+            >
+              Her kommer ting ind i bottomsheet!
             </Text>
           </View>
         </BottomSheet>
@@ -51,10 +76,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   button: {
-    height: 60,
-    borderRadius: 30,
+    height: 100,
+    borderRadius: 50,
     aspectRatio: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     opacity: 0.6,
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
