@@ -1,3 +1,6 @@
+// * Credits til Code with Beto:
+// ! https://www.youtube.com/watch?v=9EoKurp6V0I 
+
 import React, { useState, useEffect, useRef } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Constants from "expo-constants";
@@ -6,7 +9,7 @@ import * as MediaLibrary from "expo-media-library";
 
 import CameraBot from "../CameraBot";
 
-export default function App() {
+export default function CameraScreen() {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);

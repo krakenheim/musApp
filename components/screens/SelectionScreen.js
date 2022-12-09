@@ -12,6 +12,7 @@ export default function SelectionScreen() {
           <ActButton tech={"NFC"} onPress={() => navigation.navigate('NFC')}></ActButton>
           <ActButton tech={"Camera"} onPress={() => navigation.navigate('Camera')}></ActButton>
           <ActButton tech={"GPS"} onPress={() => navigation.navigate('GPS')}></ActButton>
+          <ActButton tech={"Object"} onPress={() => navigation.navigate('Object')}> </ActButton>
       </View>
     );
   }

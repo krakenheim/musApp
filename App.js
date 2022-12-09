@@ -7,6 +7,7 @@ import SelectionScreen from "./components/screens/SelectionScreen";
 import GpsScreen from "./components/screens/GpsScreen";
 import NfcScreen from "./components/screens/NfcScreen";
 import CameraScreen from "./components/screens/CameraScreen";
+import ObjectRec from "./components/screens/ObjectRec";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ export default function App() {
           name="NFC"
           component={NfcScreen}
           options={{
-            title: "NFC",
+            title: "",
             headerTransparent: true,
             headerTitleAlign: "center",
             headerTintColor: "#111",
@@ -43,7 +44,6 @@ export default function App() {
             headerTransparent: true,
             headerTitleAlign: "center",
             headerTintColor: "#fff",
-            
           }}
         />
         <Stack.Screen
@@ -53,6 +53,16 @@ export default function App() {
             title: "",
             headerTransparent: true,
             headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Object"
+          component={ObjectRec}
+          options={{
+            title: "Object",
+            headerTransparent: true,
+            headerTitleAlign: "center",
+            headerTintColor: "#fff",
           }}
         />
       </Stack.Navigator>
