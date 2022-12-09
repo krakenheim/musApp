@@ -6,6 +6,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image, Platform } from "react
 import Constants from "expo-constants";
 import { Camera, CameraType } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
+import * as NavigationBar from 'expo-navigation-bar'
 
 import CameraBot from "../CameraBot";
 
@@ -16,9 +17,9 @@ export default function CameraScreen() {
   const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
   const cameraRef = useRef(null);
 
-  if (Platform.OS == 'android') {
-    
-  };
+  useEffect(() => {
+    NavigationBar.setBackgroundColorAsync("blue");
+  });
 
   useEffect(() => {
     (async () => {

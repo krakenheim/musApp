@@ -1,12 +1,13 @@
-import { View, Text, StyleSheet, Dimensions, Permission } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Permission, useCallback } from "react-native";
 import MapView, {Marker} from "react-native-maps";
 import * as Location from "expo-location";
 import React, {useState, useEffect} from "react";
+import * as NavigationBar from 'expo-navigation-bar';
 
 export default function GpsScreen() {
     const [location, setLocation] = useState(null);
     
-
+    
   React.useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();

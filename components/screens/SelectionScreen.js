@@ -1,10 +1,14 @@
 import ActButton from "../actButton";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import React from 'react'
+import { StyleSheet, Text, View, Button, TouchableOpacity, useEffect } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as NavigationBar from "expo-navigation-bar";
 
 export default function SelectionScreen() {
 
+  
   const navigation = useNavigation();
+
 
     return (
       <View style={styles.container}>
