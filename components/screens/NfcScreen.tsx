@@ -2,13 +2,20 @@ import { View, Text, StyleSheet, Dimensions, Permission, TouchableOpacity } from
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import BottomSheet from "../BottomSheet";
+import BottomSheet, { BottomSheetRefProps } from "../BottomSheet";
 
 export default function NfcScreen() {
-  const ref = useRef(null)
+  const ref = useRef<BottomSheetRefProps>(null)
 
   const onPress = useCallback(() => {
-    ref?.current?.scrollTo(-150)
+    const isActive = ref?.current?.isActive()
+    if (isActive) {
+      ref?.current?.scrollTo(0);
+    } else {
+      ref?.current?.scrollTo(-150);
+    }
+
+    
   }, [])
 
   return (
@@ -16,7 +23,13 @@ export default function NfcScreen() {
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={onPress}/>
         {/*  <Text style={styles.loading}>Dette er KFC... Undskyld NFC.</Text> */}
-        <BottomSheet ref={ref} />
+        <BottomSheet ref={ref} >
+          <View style={{flex: 1, backgroundColor: 'orange'}}>
+            <Text style={{flex: 1, textAlign: 'center', textAlignVertical: 'center'}}>
+                 Her kommer ting ind i bottomsheet!
+            </Text>
+          </View>
+        </BottomSheet>
       </View>
     </GestureHandlerRootView>
   );
