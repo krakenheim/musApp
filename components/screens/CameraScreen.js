@@ -2,7 +2,7 @@
 // ! https://www.youtube.com/watch?v=9EoKurp6V0I 
 
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image, Platform } from "react-native";
 import Constants from "expo-constants";
 import { Camera, CameraType } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
@@ -15,6 +15,10 @@ export default function CameraScreen() {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
   const cameraRef = useRef(null);
+
+  if (Platform.OS == 'android') {
+    
+  };
 
   useEffect(() => {
     (async () => {

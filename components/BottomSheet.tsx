@@ -15,7 +15,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("screen");
-const MAX_TRANSLATE_Y = -SCREEN_HEIGHT +40;
+const MAX_TRANSLATE_Y = -SCREEN_HEIGHT + 100;
 
 type BottomSheetProps = {
   children?: React.ReactNode 
@@ -65,7 +65,7 @@ const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
           /*         translateY.value = withSpring(0, { damping: 500 }); */
           // * the higher threshold for modal snap to top of the screen
           // * (higher number (now 1.5) means snap to top will happen on more of the screen)
-        } else if (translateY.value < -SCREEN_HEIGHT / 1.5) {
+        } else if (translateY.value < -SCREEN_HEIGHT / 1.8) {
           scrollTo(MAX_TRANSLATE_Y);
           /*         translateY.value = withSpring(MAX_TRANSLATE_Y, { damping: 50 }); */
         }
@@ -103,7 +103,7 @@ export default BottomSheet;
 
 const styles = StyleSheet.create({
   bottomSheetContainer: {
-    height: SCREEN_HEIGHT,
+    height: SCREEN_HEIGHT-100,
     width: "100%",
     backgroundColor: "#fff",
     position: "absolute",

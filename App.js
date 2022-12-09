@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+
 import SelectionScreen from "./components/screens/SelectionScreen";
 import GpsScreen from "./components/screens/GpsScreen";
 import NfcScreen from "./components/screens/NfcScreen";
@@ -10,6 +11,7 @@ import CameraScreen from "./components/screens/CameraScreen";
 import ObjectRec from "./components/screens/ObjectRec";
 
 const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
@@ -33,7 +35,7 @@ export default function App() {
             title: "",
             headerTransparent: true,
             headerTitleAlign: "center",
-            headerTintColor: "#111",
+            headerTintColor: "#fff",
           }}
         />
         <Stack.Screen
@@ -66,7 +68,7 @@ export default function App() {
           }}
         />
       </Stack.Navigator>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </NavigationContainer>
   );
 }
