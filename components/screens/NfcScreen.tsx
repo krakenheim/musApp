@@ -33,9 +33,9 @@ export default function NfcScreen() {
               flex: 1,
               textAlign: "center",
               textAlignVertical: "center",
-              alignItems:'center',
+              alignItems: "center",
               fontSize: 20,
-              fontWeight: 'bold'
+              fontWeight: "bold",
             }}
           >
             Scan {"\n"} NFC
