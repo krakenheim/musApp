@@ -1,3 +1,5 @@
+// * Credit uffoltzl on https://github.com/uffoltzl/object_recognition_RN/blob/main/demo/App.tsx
+
 import React, { useState, useEffect, useRef } from "react";
 import {
   Text,
@@ -12,6 +14,8 @@ import { Camera, CameraType } from "expo-camera";
 import * as tf from "@tensorflow/tfjs";
 import { cameraWithTensors } from "@tensorflow/tfjs-react-native";
 import * as mobilenet from "@tensorflow-models/mobilenet";
+import SystemNavigationBar from 'react-native-system-navigation-bar'
+
 
 const textureDims =
   Platform.OS === "ios"
@@ -35,11 +39,11 @@ const initialiseTensorflow = async () => {
 };
 
 export default function ObjectRec() {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [detections, setDetections] = useState([]);
-  const [net, setNet] = useState();
+  const [hasPermission, setHasPermission] = useState<null | boolean>(null);
+  const [detections, setDetections] = useState<string[]>([]);
+  const [net, setNet] = useState<mobilenet.MobileNet>();
 
-  const handleCameraStream = (images) => {
+  const handleCameraStream = (images: IterableIterator<tf.Tensor3D>) => {
     const loop = async () => {
       if (net) {
         if (frame % computeRecognitionEveryNFrames === 0) {
@@ -79,13 +83,15 @@ export default function ObjectRec() {
   if (!net) {
     return <Text style={styles.loading}>Loading Data</Text>;
   }
-
+  
   return (
     <View style={styles.container}>
+      
       <TensorCamera
+        useCustomShadersToResize={false} // Maybe causing error. If so,  set true.
         style={styles.camera}
         onReady={handleCameraStream}
-        type={Camera.Constants.Type.back}
+        type={CameraType.back} //Camera.Constants.Type.back causing error in TS. Changed to CameraType Dependency
         cameraTextureHeight={textureDims.height}
         cameraTextureWidth={textureDims.width}
         resizeHeight={200}
