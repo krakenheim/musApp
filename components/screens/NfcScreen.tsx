@@ -8,12 +8,28 @@ import {
 } from "react-native";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import NfcManager, {NfcTech} from 'react-native-nfc-manager'
 import { Entypo } from "@expo/vector-icons";
 
 import BottomSheet, { BottomSheetRefProps } from "../BottomSheet";
 
+NfcManager.start();
+
 export default function NfcScreen() {
   const ref = useRef<BottomSheetRefProps>(null);
+
+  async function readNdef() {
+    try {
+      await NfcManager.requestTechnology(NfcTech.Ndef);
+
+      const tag = await NfcManager.getTag();
+      console.warn('tag found', tag);
+    } catch (e) {
+      console.warn('Something went wrong', e);
+    } finally {
+      NfcManager.cancelTechnologyRequest();
+    }
+  }
 
   const onPress = useCallback(() => {
     const isActive = ref?.current?.isActive();
