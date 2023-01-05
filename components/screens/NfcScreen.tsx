@@ -3,7 +3,7 @@
  * ! Therefore et is necessary to build the application.
  * ! This could be a reason to separate each application part. Especially for this NFC part.
  * TODO 1. Separate this part only another project.
- * TODO 2. Build the app using eas build.
+ * TODO 2. Build the app using eas build.  Expo eas Documentations and https://www.youtube.com/watch?v=oBWBDaqNuws. The latter relates more to publishing on google play store.
  * TODO 3. install the application on an android device
  * TODO 4. Test if the NFC module works.
 */
